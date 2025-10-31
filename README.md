@@ -64,7 +64,7 @@ Added numerical indicators to strengthen the model:
 Trained and compared multiple models:  
 - **Logistic Regression**  
 - **Random Forest**  
-- **XGBoost**
+- **SVM**
 
 **Evaluation Metrics:**  
 - Accuracy  
@@ -88,7 +88,7 @@ Trained and compared multiple models:
 | Data Handling | Pandas, NumPy |
 | Visualization | Matplotlib, Seaborn, Plotly |
 | NLP | NLTK, Scikit-learn (TF-IDF) |
-| Modeling | Logistic Regression, Random Forest, XGBoost |
+| Modeling | Logistic Regression, Random Forest, SVM |
 | Balancing | SMOTE |
 | Environment | Jupyter Notebook / Google Colab |
 
