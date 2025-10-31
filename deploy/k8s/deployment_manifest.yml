@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: streamlit-ml-deployment
+  labels:
+    app: streamlit-ml
+spec:
+  replicas: 2   # number of pod replicas for availability
+  selector:
+    matchLabels:
+      app: streamlit-ml
+  template:
+    metadata:
+      labels:
+        app: streamlit-ml
+    spec:
+      containers:
+        - name: streamlit-ml
+          # Replace this with your actual image name (e.g., your Docker Hub repo)
+          image: your-dockerhub-username/streamlit-ml:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8501
+          envFrom:
+            - configMapRef:
+                name: streamlit-config
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              cpu: "500m"
+              memory: "1Gi"
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8501
+            initialDelaySeconds: 20
+            periodSeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8501
+            initialDelaySeconds: 10
+            periodSeconds: 15

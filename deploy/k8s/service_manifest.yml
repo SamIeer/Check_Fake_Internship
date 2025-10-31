@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: streamlit-ml-service
+  labels:
+    app: streamlit-ml
+spec:
+  type: LoadBalancer  # Use NodePort if your cluster doesn’t support LoadBalancer
+  selector:
+    app: streamlit-ml
+  ports:
+    - port: 8501
+      targetPort: 8501
+      protocol: TCP
+      name: http

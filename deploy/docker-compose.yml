@@ -1,0 +1,14 @@
+services:
+  streamlit-app:
+    build: .
+    container_name: streamlit-ml-app
+    ports:
+      - "8501:8501"
+    environment:
+      - STREAMLIT_SERVER_PORT=8501
+      - STREAMLIT_SERVER_ENABLECORS=false
+      - STREAMLIT_SERVER_HEADLESS=true
+    volumes:
+      - .:/app
+    command: stremlit run app/dashboard.py
+    restart: unless-stopped
