@@ -37,12 +37,12 @@ jobs:
       # Step 5: Build Dcoker image (for verification only)
       - name: Build Docker image
         run: |
-          docker build -t my-streamlit-app:ci-test .
+          docker build -t fake_internship:ci-test .
 
       # Step 6: Build Docker as artifact 
       - name: Save Docker image artifact 
         uses: actions/upload-artifact@v4
-        wtih:
+        with:
           name: streamlit-image
           path: |
             ./Dockerfile
