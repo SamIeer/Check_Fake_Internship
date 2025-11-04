@@ -14,37 +14,46 @@ jobs:
     steps:
 # Step 1: Checkout repo 
       - name: Checkout code
-        uses: actions/Checkout@v4
+        uses: actions/checkout@v4
 
 # Step 2: Set up python
       - name: Set up Python 
         uses: actions/setup-python@v5
         with:
-          python-verson: '3.12'
+          python-version: '3.12'
 
 # Step 3: Install dependencies
       - name: Install dependencies
         run: |
-          python -m pip intall --upgrade pip
+          python -m pip install --upgrade pip
           pip intstall -r requirements.txt
 
-# Step 45: Lint with flakes8
+# Step 4: Lint with flakes8
       - name: Run tests
         run: |
           pip install pytest
           pytest -v
 
-# Step 5: Build Dcoker image (for verification only)
+    # Step 5: Build Docker image (for verification only)
       - name: Build Docker image
         run: |
-          docker build -t fake_internship:ci-test .
+          docker build -t fake_internship:ci-test -f deploy/Dockerfile deploy/
 
-# Step 6: Build Docker as artifact 
-      - name: Save Docker image artifact 
+# Step 6: Save Docker image as artifact 
+      - name: Save Docker image artifact
+        run: |
+          docker save fake_internship:ci-test -o fake_internship_ci.tar
+
+      - name: Upload Docker image
         uses: actions/upload-artifact@v4
         with:
-          name: streamlit-image
-          path: |
-            ./Dockerfile
+          name: fake_internship-image
+          path: fake_internship_ci.tar
+
+# Optional: Validate docker-compose.yml
+      - name: Validate docker-compose file
+        run: |
+          docker compose -f deploy/docker-compose.yml config
+
 
 
