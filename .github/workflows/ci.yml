@@ -18,7 +18,7 @@ jobs:
 
 # Step 2: Set up python
       - name: Set up Python 
-        uses: actions/setip-python@v5
+        uses: actions/setup-python@v5
         with:
           python-verson: '3.12'
 
