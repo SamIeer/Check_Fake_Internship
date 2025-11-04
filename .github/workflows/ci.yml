@@ -34,6 +34,11 @@ jobs:
           pip install pytest
           pytest -v || true
 
+# Step 5: Build Docker image (for verification only)
+      - name: Build Docker image
+        run: |
+          docker build -t fake_internship:ci-test -f deploy/Dockerfile deploy/
+
 # Step 6: Save Docker image as artifact 
       - name: Save Docker image artifact
         run: |
@@ -49,6 +54,3 @@ jobs:
       - name: Validate docker-compose file
         run: |
           docker compose -f deploy/docker-compose.yml config
-
-
-
