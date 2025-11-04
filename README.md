@@ -1,4 +1,4 @@
-# 🧠 Fake Internship Detector  
+#  Fake Internship Detector  
 *Detecting fraudulent job postings using NLP and Machine Learning*
 
 ---
@@ -39,6 +39,8 @@ The model learns to differentiate between **genuine** and **fake** postings usin
 - Visualized class imbalance (95% genuine vs. 5% fake)  
 - Generated **missing value heatmaps**, **word clouds**, and **text length distributions**  
 - Observed that fake posts were shorter, repetitive, and used flashy terms like “money”, “urgent”, “work from home”
+- <img width="1182" height="394" alt="96f800b7-4ba4-4fff-b903-a7c5ad159c89" src="https://github.com/user-attachments/assets/e69b42f0-adf8-436e-9fea-cc1e5db2b618" />
+
 
 ### ⚙️ Step 3: Feature Engineering  
 Added numerical indicators to strengthen the model:  
@@ -46,7 +48,10 @@ Added numerical indicators to strengthen the model:
 - `num_unique_words`  
 - `num_chars`  
 - `avg_word_len`  
-- `num_exclamations`, `num_question_marks`, `num_uppercase`  
+- `num_exclamations`, `num_question_marks`, `num_uppercase`
+- <img width="1384" height="984" alt="c8526139-8d02-464e-8d20-ed4665f9b0c9" src="https://github.com/user-attachments/assets/ac661ea6-3549-4d99-9418-3351863854a5" />
+
+
 
 > 🧠 *These features complement NLP features by capturing stylistic and behavioral patterns.*
 
@@ -77,7 +82,11 @@ Trained and compared multiple models:
 
 ### 📈 Step 7: Visualization  
 - Used **Matplotlib**, **Seaborn**, and **Plotly** for interactive and comparative insights  
-- Plotted feature distributions, confusion matrices, and ROC curves  
+- Plotted feature distributions, confusion matrices, and ROC curves
+- <img width="455" height="396" alt="2f1394af-1b7a-4107-b738-c7cfdf76e5d3" src="https://github.com/user-attachments/assets/ceb08d7e-a86f-40ac-ba98-7bd7801b329a" />
+<img width="467" height="473" alt="b7fded7c-8c48-494c-b4b7-d8a574834e55" src="https://github.com/user-attachments/assets/b730439a-95bf-4e57-ba1f-32f2917395da" />
+
+
 
 ---
 
