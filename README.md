@@ -1,6 +1,8 @@
 #  Fake Internship Detector  
 *Detecting fraudulent job postings using NLP and Machine Learning*
 
+https://github.com/user-attachments/assets/d5e79a2e-c5b7-410f-987f-31da8c196f5b
+
 ---
 
 ## 📖 Overview  
