@@ -37,7 +37,7 @@ jobs:
 # Step 5: Build Docker image (for verification only)
       - name: Build Docker image
         run: |
-          docker build -t fake_internship:ci-test -f deploy/Dockerfile deploy/
+          docker build -t fake_internship:ci-test -f deploy/Dockerfile .
 
 # Step 6: Save Docker image as artifact 
       - name: Save Docker image artifact
