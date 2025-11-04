@@ -3,7 +3,7 @@ name: CI Pipeline
 on:
   push:
     branches: [main]
-  pull_requests:
+  pull_request:
     branches: [main]
 
 jobs:
@@ -12,39 +12,39 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout repo 
+# Step 1: Checkout repo 
       - name: Checkout code
         uses: actions/Checkout@v4
 
-      # Step 2: Set up python
+# Step 2: Set up python
       - name: Set up Python 
         uses: actions/setip-python@v5
         with:
           python-verson: '3.12'
 
-      # Step 3: Install dependencies
-      - name: Tnstall dependencies
+# Step 3: Install dependencies
+      - name: Install dependencies
         run: |
           python -m pip intall --upgrade pip
           pip intstall -r requirements.txt
 
-      # Step 45: Lint with flakes8
+# Step 45: Lint with flakes8
       - name: Run tests
         run: |
           pip install pytest
           pytest -v
 
-      # Step 5: Build Dcoker image (for verification only)
+# Step 5: Build Dcoker image (for verification only)
       - name: Build Docker image
         run: |
           docker build -t fake_internship:ci-test .
 
-      # Step 6: Build Docker as artifact 
+# Step 6: Build Docker as artifact 
       - name: Save Docker image artifact 
         uses: actions/upload-artifact@v4
         with:
           name: streamlit-image
           path: |
             ./Dockerfile
-        
+
 
